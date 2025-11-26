@@ -44,7 +44,7 @@ A modern, responsive portfolio website for Java developers built with HTML, CSS,
 
 ## Live Demo
 
-Visit the live portfolio: [Your GitHub Pages URL]
+Visit the live portfolio: [https://sadamn0.github.io/myportfolio/](https://sadamn0.github.io/myportfolio/)
 
 ## License
 

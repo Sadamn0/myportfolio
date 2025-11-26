@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -375,20 +376,30 @@
                         <a href="#" class="social-icon"><i class="fab fa-stack-overflow"></i></a>
                     </div>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" id="contactForm">
                     <div class="form-group">
-                        <input type="text" class="form-input" placeholder="Your Name" required>
+                        <input type="text" id="user_name" name="user_name" class="form-input" placeholder="Your Name" required>
+                        <span class="error-message" id="name-error"></span>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-input" placeholder="Your Email" required>
+                        <input type="email" id="user_email" name="user_email" class="form-input" placeholder="Your Email" required>
+                        <span class="error-message" id="email-error"></span>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-input" placeholder="Subject" required>
+                        <input type="text" id="subject" name="subject" class="form-input" placeholder="Subject" required>
+                        <span class="error-message" id="subject-error"></span>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-input form-textarea" placeholder="Your Message" rows="5" required></textarea>
+                        <textarea id="message" name="message" class="form-input form-textarea" placeholder="Your Message" rows="5" required></textarea>
+                        <span class="error-message" id="message-error"></span>
                     </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <div id="form-message" class="form-message"></div>
+                    <button type="submit" class="btn btn-primary" id="submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-loader" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Sending...
+                        </span>
+                    </button>
                 </form>
             </div>
         </div>
@@ -397,7 +408,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Java Developer Portfolio. All rights reserved.</p>
+            <p>&copy; 2025 Sadam Hussain Portfolio. All rights reserved.</p>
             <p>Built with <i class="fas fa-heart"></i> and Java</p>
         </div>
     </footer>
