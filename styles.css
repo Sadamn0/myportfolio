@@ -1990,6 +1990,494 @@ img, video, iframe {
     }
 }
 
+/* OnePlus 12 Specific Optimizations (412px × 916px viewport) */
+@media screen and (min-width: 380px) and (max-width: 450px) and (min-height: 800px) {
+    /* Enhanced viewport meta for better scaling */
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    /* Container optimization */
+    .container {
+        padding: 0 20px;
+        max-width: 100%;
+    }
+
+    /* Hero section for OnePlus 12 */
+    .hero {
+        min-height: 90vh;
+        padding-top: 80px;
+        padding-bottom: 4rem;
+    }
+
+    .hero-title {
+        font-size: 2.3rem;
+        line-height: 1.25;
+        margin-bottom: 1.5rem;
+    }
+
+    .greeting {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .name {
+        font-size: 1.9rem;
+        display: block;
+    }
+
+    .title {
+        font-size: 1.7rem;
+        margin-top: 0.5rem;
+    }
+
+    .hero-description {
+        font-size: 1.05rem;
+        line-height: 1.75;
+        margin-bottom: 2.5rem;
+        padding: 0 10px;
+    }
+
+    .hero-buttons {
+        gap: 1.25rem;
+        margin-bottom: 2.5rem;
+        padding: 0 10px;
+    }
+
+    .btn {
+        padding: 1.1rem 2.2rem;
+        font-size: 1.05rem;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .social-links {
+        gap: 1rem;
+        justify-content: center;
+        padding: 0 10px;
+    }
+
+    .social-link {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+    }
+
+    /* Code snippet for OnePlus 12 */
+    .code-snippet {
+        max-width: 100%;
+        width: calc(100% - 20px);
+        margin: 2.5rem auto 0;
+        transform: none;
+    }
+
+    .code-content {
+        padding: 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    /* Section titles */
+    .section-title {
+        font-size: 2.3rem;
+        margin-bottom: 3rem;
+    }
+
+    /* About section */
+    .about {
+        padding: 5.5rem 0;
+    }
+
+    .about-content {
+        gap: 3.5rem;
+    }
+
+    .profile-image-container {
+        width: 300px;
+        height: 300px;
+    }
+
+    .profile-image {
+        width: 280px;
+        height: 280px;
+    }
+
+    .profile-image-border {
+        width: 300px;
+        height: 300px;
+    }
+
+    .about-description {
+        font-size: 1.1rem;
+        line-height: 1.85;
+        margin-bottom: 1.25rem;
+    }
+
+    .about-stats {
+        gap: 1.75rem;
+        margin-top: 2.5rem;
+    }
+
+    .stat-item {
+        padding: 1.75rem;
+    }
+
+    .stat-number {
+        font-size: 2.75rem;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+    }
+
+    /* Skills section */
+    .skills {
+        padding: 5.5rem 0;
+    }
+
+    .skill-category {
+        padding: 2.25rem;
+    }
+
+    .skill-category-title {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Projects section */
+    .projects {
+        padding: 5.5rem 0;
+    }
+
+    .project-content {
+        padding: 2rem;
+    }
+
+    .project-title {
+        font-size: 1.6rem;
+    }
+
+    .project-description {
+        font-size: 1.05rem;
+        line-height: 1.75;
+    }
+
+    /* Contact section */
+    .contact {
+        padding: 5.5rem 0;
+    }
+
+    .contact-content {
+        gap: 3.5rem;
+    }
+
+    .contact-title {
+        font-size: 2.1rem;
+    }
+
+    .contact-description {
+        font-size: 1.05rem;
+        line-height: 1.85;
+    }
+
+    .form-input {
+        padding: 1.2rem;
+        font-size: 1.05rem;
+    }
+
+    /* Navigation */
+    .navbar .container {
+        padding: 1.1rem 20px;
+    }
+
+    .nav-brand {
+        font-size: 1.4rem;
+    }
+
+    /* Better spacing overall */
+    .hero-content {
+        gap: 3.5rem;
+    }
+
+    /* Text readability */
+    p, .about-description, .project-description, .contact-description {
+        line-height: 1.85;
+    }
+}
+
+/* OnePlus 12 and Similar Large Phones - Portrait (412px width typical) */
+@media screen and (min-width: 380px) and (max-width: 450px) and (min-height: 800px) {
+    /* OnePlus 12: 412px × 916px (viewport) */
+    /* Optimize for tall, narrow screens like OnePlus 12 */
+    .container {
+        padding: 0 18px;
+    }
+
+    .hero {
+        min-height: 90vh;
+        padding-top: 80px;
+        padding-bottom: 4rem;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        margin-bottom: 1.25rem;
+    }
+
+    .greeting {
+        font-size: 1.2rem;
+    }
+
+    .name {
+        font-size: 1.8rem;
+    }
+
+    .title {
+        font-size: 1.6rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+    }
+
+    .about {
+        padding: 5rem 0;
+    }
+
+    .about-content {
+        gap: 3rem;
+    }
+
+    .profile-image-container {
+        width: 280px;
+        height: 280px;
+    }
+
+    .profile-image {
+        width: 260px;
+        height: 260px;
+    }
+
+    .profile-image-border {
+        width: 280px;
+        height: 280px;
+    }
+
+    .about-description {
+        font-size: 1.05rem;
+        line-height: 1.8;
+    }
+
+    .about-stats {
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .stat-item {
+        padding: 1.5rem;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.95rem;
+    }
+
+    .skills {
+        padding: 5rem 0;
+    }
+
+    .skill-category {
+        padding: 2rem;
+    }
+
+    .skill-category-title {
+        font-size: 1.5rem;
+    }
+
+    .projects {
+        padding: 5rem 0;
+    }
+
+    .project-content {
+        padding: 1.75rem;
+    }
+
+    .project-title {
+        font-size: 1.5rem;
+    }
+
+    .project-description {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .contact {
+        padding: 5rem 0;
+    }
+
+    .contact-content {
+        gap: 3rem;
+    }
+
+    .contact-title {
+        font-size: 2rem;
+    }
+
+    .contact-description {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .form-input {
+        padding: 1.1rem;
+        font-size: 1rem;
+    }
+
+    /* Better spacing for tall screens */
+    .hero-content {
+        gap: 3rem;
+    }
+
+    .code-snippet {
+        margin-top: 2.5rem;
+    }
+
+    /* Improve readability on tall screens */
+    p, .about-description, .project-description, .contact-description {
+        line-height: 1.8;
+    }
+
+    /* Fix navigation for OnePlus 12 */
+    .navbar .container {
+        padding: 1rem 18px;
+    }
+
+    /* Better code snippet sizing */
+    .code-snippet {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .code-content pre {
+        font-size: 0.8rem;
+        line-height: 1.6;
+    }
+
+    /* Optimize social links */
+    .social-links {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Better form layout */
+    .contact-form {
+        gap: 1.5rem;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    /* Ensure no overflow */
+    .hero-image {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
+/* OnePlus 12 Specific - High DPI Screens */
+@media screen and (min-width: 380px) and (max-width: 450px) and (-webkit-min-device-pixel-ratio: 3) {
+    /* Optimize for high pixel density */
+    .hero-title {
+        font-weight: 600;
+        letter-spacing: -0.02em;
+    }
+
+    .section-title {
+        font-weight: 600;
+        letter-spacing: -0.01em;
+    }
+
+    /* Sharper borders */
+    .btn {
+        border-width: 2px;
+    }
+
+    .profile-image {
+        border-width: 4px;
+    }
+}
+
+/* OnePlus 12 Portrait Mode Specific */
+@media screen and (min-width: 360px) and (max-width: 450px) and (orientation: portrait) and (min-height: 700px) {
+    .hero {
+        min-height: 85vh;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* Better vertical spacing */
+    .about,
+    .skills,
+    .projects,
+    .contact {
+        padding: 4.5rem 0;
+    }
+}
+
+/* OnePlus 12 Landscape Mode */
+@media screen and (min-width: 700px) and (max-width: 1000px) and (orientation: landscape) and (max-height: 500px) {
+    .hero {
+        min-height: auto;
+        padding: 2rem 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-content {
+        gap: 2rem;
+    }
+
+    .about,
+    .skills,
+    .projects,
+    .contact {
+        padding: 3rem 0;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+}
+
 /* Ultra Small Devices - Below 300px */
 @media (max-width: 300px) {
     .container {
