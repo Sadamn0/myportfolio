@@ -5,7 +5,7 @@
 // See EMAILJS_SETUP.md for detailed instructions
 const EMAILJS_CONFIG = {
     PUBLIC_KEY: 'n6fSb21aIBu-PlpUC',        // Replace with your EmailJS Public Key
-    SERVICE_ID: 'service_1ifrlok',        // Replace with your EmailJS Service ID
+    SERVICE_ID: 'service_1rh2698',        // Replace with your EmailJS Service ID
     TEMPLATE_ID: 'template_m5krhhp',      // Replace with your EmailJS Template ID
     TO_EMAIL: 'sadamn.developer@gmail.com' // Your email address (where you'll receive messages)
 };
@@ -327,4 +327,84 @@ document.querySelectorAll('.project-card').forEach(card => {
     card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     projectObserver.observe(card);
 });
+
+// ============================================
+// NUMBER COUNTING ANIMATION
+// ============================================
+
+// Function to animate number counting
+function animateCounter(element, target, suffix = '', duration = 2000) {
+    const start = 0;
+    const increment = target / (duration / 16); // 60fps
+    let current = start;
+    const isDecimal = target % 1 !== 0;
+    
+    // Add animating class for visual effect
+    element.classList.add('animating');
+    
+    const timer = setInterval(() => {
+        current += increment;
+        
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+            element.classList.remove('animating');
+        }
+        
+        // Format number based on type
+        if (isDecimal) {
+            element.textContent = current.toFixed(1) + suffix;
+        } else {
+            element.textContent = Math.floor(current) + suffix;
+        }
+    }, 16); // ~60fps
+}
+
+// Function to extract number and suffix from stat
+function parseStatValue(statElement) {
+    const text = statElement.textContent.trim();
+    const match = text.match(/(\d+(?:\.\d+)?)(.*)/);
+    
+    if (match) {
+        return {
+            number: parseFloat(match[1]),
+            suffix: match[2] || ''
+        };
+    }
+    return { number: 0, suffix: '' };
+}
+
+// Observer for About Me section stats
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const statItems = entry.target.querySelectorAll('.stat-number');
+            
+            statItems.forEach((statElement, index) => {
+                // Get original value
+                const { number, suffix } = parseStatValue(statElement);
+                
+                // Reset to 0
+                statElement.textContent = '0' + suffix;
+                
+                // Animate with delay for each stat
+                setTimeout(() => {
+                    animateCounter(statElement, number, suffix, 2000);
+                }, index * 200); // Stagger animation by 200ms
+            });
+            
+            // Only animate once
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.5,
+    rootMargin: '0px'
+});
+
+// Observe About Me section
+const aboutSection = document.querySelector('.about');
+if (aboutSection) {
+    statsObserver.observe(aboutSection);
+}
 
