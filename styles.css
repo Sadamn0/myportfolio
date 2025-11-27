@@ -259,6 +259,63 @@ img, video, iframe {
     padding: 1rem 20px;
 }
 
+/* Bootstrap Integration - Override Bootstrap defaults where needed */
+.navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+    background: transparent;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/* Ensure Bootstrap columns work with custom styles */
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.row > * {
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+}
+
+/* Mobile-first responsive improvements */
+@media (max-width: 575.98px) {
+    .hero-content.row {
+        --bs-gutter-x: 2rem;
+        --bs-gutter-y: 2rem;
+    }
+    
+    .about-content.row {
+        --bs-gutter-x: 2rem;
+        --bs-gutter-y: 2rem;
+    }
+    
+    .contact-content.row {
+        --bs-gutter-x: 2rem;
+        --bs-gutter-y: 2rem;
+    }
+    
+    .projects-grid.row {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 1.5rem;
+    }
+    
+    .skills-grid.row {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 1.5rem;
+    }
+    
+    /* Ensure full width on mobile */
+    .col-12 {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
 .nav-brand {
     font-size: 1.5rem;
     font-weight: 700;
@@ -302,10 +359,13 @@ img, video, iframe {
 }
 
 .hamburger {
-    display: none;
+    display: flex;
     flex-direction: column;
     cursor: pointer;
     gap: 4px;
+    border: none;
+    background: transparent;
+    padding: 0.5rem;
 }
 
 .hamburger span {
@@ -314,6 +374,27 @@ img, video, iframe {
     background: var(--text-primary);
     border-radius: 3px;
     transition: all 0.3s ease;
+    display: block;
+}
+
+/* Bootstrap navbar collapse integration */
+.navbar-collapse {
+    background: white;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 992px) {
+    .navbar-collapse {
+        background: transparent;
+        margin-top: 0;
+        box-shadow: none;
+    }
+    
+    .hamburger {
+        display: none;
+    }
 }
 
 /* Hero Section */
@@ -409,13 +490,17 @@ img, video, iframe {
 }
 
 .hero-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    display: flex;
     align-items: center;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+}
+
+/* Override Bootstrap row gap if needed */
+.hero-content.row {
+    --bs-gutter-x: 4rem;
+    --bs-gutter-y: 2rem;
 }
 
 .hero-text {
@@ -754,10 +839,13 @@ img, video, iframe {
 }
 
 .about-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4rem;
+    display: flex;
     align-items: center;
+}
+
+.about-content.row {
+    --bs-gutter-x: 4rem;
+    --bs-gutter-y: 2rem;
 }
 
 .about-image {
@@ -886,10 +974,14 @@ img, video, iframe {
 }
 
 .about-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
     margin-top: 2rem;
+}
+
+.about-stats.row {
+    --bs-gutter-x: 2rem;
+    --bs-gutter-y: 1rem;
 }
 
 .stat-item {
@@ -969,17 +1061,59 @@ img, video, iframe {
 }
 
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Bootstrap grid will handle the layout */
+.skills-grid.row {
+    --bs-gutter-x: 3rem;
+    --bs-gutter-y: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .skills-grid.row {
+        --bs-gutter-x: 4rem;
+        --bs-gutter-y: 3rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .skills-grid.row {
+        --bs-gutter-x: 4.5rem;
+        --bs-gutter-y: 3rem;
+    }
+}
+
+/* Additional spacing for skill categories */
+.skills-grid .skill-category {
+    margin-bottom: 1.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .skills-grid .skill-category {
+        margin-left: 0.75rem;
+        margin-right: 0.75rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .skills-grid .skill-category {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 }
 
 .skill-category {
     background: white;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 1rem;
     box-shadow: var(--shadow-md);
     transition: transform 0.3s ease;
+    margin-bottom: 1rem;
+    max-width: 100%;
 }
 
 .skill-category:hover {
@@ -988,9 +1122,9 @@ img, video, iframe {
 }
 
 .skill-category-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -998,7 +1132,7 @@ img, video, iframe {
 }
 
 .skill-category-title i {
-    font-size: 2rem;
+    font-size: 1.75rem;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1008,7 +1142,7 @@ img, video, iframe {
 .skill-items {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
 }
 
 .skill-item {
@@ -1020,6 +1154,7 @@ img, video, iframe {
 .skill-name {
     font-weight: 500;
     color: var(--text-primary);
+    font-size: 0.95rem;
 }
 
 .skill-bar {
@@ -1078,17 +1213,59 @@ img, video, iframe {
 }
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Bootstrap grid will handle the layout */
+.projects-grid.row {
+    --bs-gutter-x: 3rem;
+    --bs-gutter-y: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .projects-grid.row {
+        --bs-gutter-x: 4rem;
+        --bs-gutter-y: 3rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .projects-grid.row {
+        --bs-gutter-x: 4.5rem;
+        --bs-gutter-y: 3rem;
+    }
+}
+
+/* Additional spacing for project cards */
+.projects-grid .project-card {
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .projects-grid .project-card {
+        margin-left: 0.75rem;
+        margin-right: 0.75rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .projects-grid .project-card {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 }
 
 .project-card {
     background: white;
-    border-radius: 1rem;
+    border-radius: 0.875rem;
     overflow: hidden;
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .project-card:hover {
@@ -1098,7 +1275,7 @@ img, video, iframe {
 
 .project-image {
     position: relative;
-    height: 200px;
+    height: 150px;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     overflow: hidden;
 }
@@ -1109,7 +1286,7 @@ img, video, iframe {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 4rem;
+    font-size: 2.75rem;
     color: white;
     opacity: 0.8;
 }
@@ -1134,8 +1311,8 @@ img, video, iframe {
 }
 
 .project-link {
-    width: 50px;
-    height: 50px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     background: white;
     display: flex;
@@ -1144,6 +1321,7 @@ img, video, iframe {
     color: var(--primary-color);
     text-decoration: none;
     transition: all 0.3s ease;
+    font-size: 0.9rem;
 }
 
 .project-link:hover {
@@ -1153,20 +1331,21 @@ img, video, iframe {
 }
 
 .project-content {
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
 .project-title {
-    font-size: 1.5rem;
+    font-size: 1.15rem;
     font-weight: 600;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     color: var(--text-primary);
 }
 
 .project-description {
     color: var(--text-secondary);
-    margin-bottom: 1rem;
-    line-height: 1.6;
+    margin-bottom: 0.65rem;
+    line-height: 1.5;
+    font-size: 0.875rem;
 }
 
 .project-tags {
@@ -1176,10 +1355,10 @@ img, video, iframe {
 }
 
 .tag {
-    padding: 0.375rem 0.75rem;
+    padding: 0.3rem 0.65rem;
     background: var(--bg-secondary);
     border-radius: 0.375rem;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     color: var(--text-secondary);
     font-weight: 500;
 }
@@ -1214,9 +1393,12 @@ img, video, iframe {
 }
 
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    display: flex;
+}
+
+.contact-content.row {
+    --bs-gutter-x: 4rem;
+    --bs-gutter-y: 2rem;
 }
 
 .contact-title {
