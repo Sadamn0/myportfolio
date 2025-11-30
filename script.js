@@ -22,18 +22,70 @@ const EMAILJS_CONFIG = {
 // ============================================
 
 // Mobile Navigation Toggle - Bootstrap Integration
-// Bootstrap handles the collapse, but we can add smooth scroll
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        // Close Bootstrap collapse menu on mobile
-        const navbarCollapse = document.querySelector('.navbar-collapse');
-        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-            if (bsCollapse) {
-                bsCollapse.hide();
+// Ensure Bootstrap collapse is working properly
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the navbar toggler button and collapse element
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    
+    if (navbarToggler && navbarCollapse) {
+        // Manual toggle function as backup
+        function toggleMenu() {
+            const isExpanded = navbarToggler.getAttribute('aria-expanded') === 'true';
+            const isShowing = navbarCollapse.classList.contains('show');
+            
+            if (isShowing) {
+                // Hide menu
+                navbarCollapse.classList.remove('show');
+                navbarCollapse.classList.add('collapse');
+                navbarToggler.setAttribute('aria-expanded', 'false');
+            } else {
+                // Show menu
+                navbarCollapse.classList.remove('collapse');
+                navbarCollapse.classList.add('show');
+                navbarToggler.setAttribute('aria-expanded', 'true');
             }
         }
-    });
+        
+        // Add click event listener - let Bootstrap handle it, but ensure visibility
+        navbarToggler.addEventListener('click', function(e) {
+            // Let Bootstrap handle the toggle, but ensure menu is visible after toggle
+            setTimeout(() => {
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.style.display = 'block';
+                    navbarCollapse.style.visibility = 'visible';
+                    navbarCollapse.style.opacity = '1';
+                    navbarCollapse.style.position = 'absolute';
+                    navbarCollapse.style.top = '100%';
+                    navbarCollapse.style.left = '0';
+                    navbarCollapse.style.right = '0';
+                    navbarCollapse.style.width = '100%';
+                }
+            }, 50);
+        });
+        
+        // Close menu when clicking nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.classList.remove('show');
+                    navbarCollapse.classList.add('collapse');
+                    navbarToggler.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navbarCollapse.contains(e.target) && 
+                !navbarToggler.contains(e.target) && 
+                navbarCollapse.classList.contains('show')) {
+                navbarCollapse.classList.remove('show');
+                navbarCollapse.classList.add('collapse');
+                navbarToggler.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
 });
 
 // Smooth scroll for navigation links
