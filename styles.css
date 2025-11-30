@@ -250,6 +250,7 @@ img, video, iframe {
     box-shadow: var(--shadow-sm);
     z-index: 1000;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 .navbar .container {
@@ -257,6 +258,59 @@ img, video, iframe {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 20px;
+}
+
+/* Ensure navbar doesn't overlap content on mobile */
+@media (max-width: 991.98px) {
+    .navbar {
+        box-shadow: var(--shadow-md);
+        min-height: 70px;
+    }
+    
+    .navbar .container {
+        padding: 0.75rem 20px;
+        min-height: 70px;
+    }
+    
+    .navbar-brand {
+        font-size: 1.25rem;
+        padding: 0.5rem 0;
+    }
+    
+    .navbar-toggler {
+        padding: 0.4rem 0.5rem;
+    }
+    
+    .navbar-collapse {
+        margin-top: 0.5rem;
+        padding: 1rem 0;
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow-md);
+    }
+    
+    .navbar-nav {
+        padding: 0.5rem 0;
+    }
+    
+    .nav-link {
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .navbar {
+        min-height: 65px;
+    }
+    
+    .navbar .container {
+        padding: 0.6rem 15px;
+        min-height: 65px;
+    }
+    
+    .navbar-brand {
+        font-size: 1.15rem;
+    }
 }
 
 /* Bootstrap Integration - Override Bootstrap defaults where needed */
@@ -405,6 +459,58 @@ img, video, iframe {
     position: relative;
     overflow: hidden;
     padding-top: 80px;
+    margin-top: 0;
+}
+
+@media (max-width: 991.98px) {
+    .hero {
+        padding-top: 110px;
+        min-height: calc(100vh - 70px);
+        align-items: flex-start;
+        padding-bottom: 2rem;
+    }
+    
+    .hero .container {
+        padding-top: 1rem;
+    }
+    
+    .hero-content {
+        margin-top: 0;
+        padding-top: 0.5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero {
+        padding-top: 100px;
+        min-height: auto;
+        padding-bottom: 3rem;
+        align-items: flex-start;
+    }
+    
+    .hero .container {
+        padding-top: 1.5rem;
+    }
+    
+    .hero-content {
+        margin-top: 0;
+        padding-top: 0.75rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero {
+        padding-top: 95px;
+        padding-bottom: 2.5rem;
+    }
+    
+    .hero .container {
+        padding-top: 1.25rem;
+    }
+    
+    .hero-content {
+        padding-top: 0.5rem;
+    }
 }
 
 .hero-background {
@@ -508,6 +614,25 @@ img, video, iframe {
     max-width: 100%;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    padding-top: 0;
+}
+
+@media (max-width: 991.98px) {
+    .hero-text {
+        padding-top: 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-text {
+        padding-top: 1.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-text {
+        padding-top: 1.25rem;
+    }
 }
 
 .hero-title {
@@ -515,6 +640,20 @@ img, video, iframe {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1.5rem;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+@media (max-width: 991.98px) {
+    .hero-title {
+        margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-title {
+        margin-top: 0.75rem;
+    }
 }
 
 .greeting {
@@ -779,6 +918,14 @@ img, video, iframe {
     background: var(--bg-secondary);
     position: relative;
     overflow: hidden;
+    scroll-margin-top: 80px;
+}
+
+@media (max-width: 991.98px) {
+    .about {
+        scroll-margin-top: 70px;
+        padding-top: 5rem;
+    }
 }
 
 .about::before {
@@ -1035,6 +1182,14 @@ img, video, iframe {
     padding: 6rem 0;
     position: relative;
     overflow: hidden;
+    scroll-margin-top: 80px;
+}
+
+@media (max-width: 991.98px) {
+    .skills {
+        scroll-margin-top: 70px;
+        padding-top: 5rem;
+    }
 }
 
 .skills::after {
@@ -1185,6 +1340,14 @@ img, video, iframe {
     background: var(--bg-secondary);
     position: relative;
     overflow: hidden;
+    scroll-margin-top: 80px;
+}
+
+@media (max-width: 991.98px) {
+    .projects {
+        scroll-margin-top: 70px;
+        padding-top: 5rem;
+    }
 }
 
 .projects::before {
@@ -1368,6 +1531,14 @@ img, video, iframe {
     padding: 6rem 0;
     position: relative;
     overflow: hidden;
+    scroll-margin-top: 80px;
+}
+
+@media (max-width: 991.98px) {
+    .contact {
+        scroll-margin-top: 70px;
+        padding-top: 5rem;
+    }
 }
 
 .contact::after {
